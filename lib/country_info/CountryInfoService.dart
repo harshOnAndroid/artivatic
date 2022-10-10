@@ -16,6 +16,18 @@ class CountryInfoService {
   static CountryInfoService getInstance(CountryInfoViewContract view) =>
       _instance = _instance ?? CountryInfoService._(view);
 
+  getCountryInfo() async {
+    APIResponse response = await networkManager.getCall(APIConstants.aboutCanada);
+
+    print("RESPONSE ==> ${response.response}");
+    print(" ==> ${response.status}");
+    if(response.status == 200){
+      listScreenViewContract!.onListFetchSuccessful(response);
+    }else{
+      listScreenViewContract!.onListFetchFailure(response);
+    }
+  }
+
   dispose() {
     _instance = null;
     listScreenViewContract = null;

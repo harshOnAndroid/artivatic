@@ -13,6 +13,16 @@ class CountryInfoScreen extends StatefulWidget {
 }
 
 class _CountryInfoScreenState extends State<CountryInfoScreen> implements CountryInfoViewContract {
+  late CountryInfoBloc _countryInfoBloc;
+
+  @override
+  void initState() {
+    _countryInfoBloc = CountryInfoBloc.getInstance(this);
+    _countryInfoBloc.fetchCountryInfo();
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,8 +37,12 @@ class _CountryInfoScreenState extends State<CountryInfoScreen> implements Countr
   }
 
   @override
-  onListFetchFailure(APIResponse response) {}
+  onListFetchFailure(APIResponse response) {
+    _countryInfoBloc.onInfoFetched(response);
+  }
 
   @override
-  onListFetchSuccessful(APIResponse response) {}
+  onListFetchSuccessful(APIResponse response) {
+    _countryInfoBloc.onInfoFetched(response);
+  }
 }
