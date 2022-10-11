@@ -2,6 +2,16 @@ import 'dart:convert';
 import 'package:artivatic_exercise/api_management/APIResponse.dart';
 import 'package:http/http.dart' as http;
 
+/**
+ * This class is created to handle network API calls. This is a common class for the entire project.
+ * This class provides methods for each and every type of API requests supported by the system.
+ * Often in the projects some guidelines are defined for network API calls -
+ * eg. the structure of API response, the status codes and its prefined reaction, etc.
+ * Such things can be managed from this class.
+ * Every service class will access the instance of this class. And these service classes can then
+ * use that instance for making appropriate API calls.
+ * **/
+
 class NetworkServiceManager {
   static NetworkServiceManager? _instance;
 

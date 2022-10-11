@@ -2,8 +2,11 @@ import 'package:artivatic_exercise/api_management/APIConstants.dart';
 import 'package:artivatic_exercise/api_management/APIResponse.dart';
 import 'package:artivatic_exercise/api_management/NetworkServiceManager.dart';
 import 'package:artivatic_exercise/country_info/CountryInfoViewContract.dart';
-import 'package:flutter/material.dart';
 
+/**
+ * This is a service class. This is responsible for any API calls made for the
+ * CountryInfo screen.
+ * **/
 class CountryInfoService {
   static CountryInfoService? _instance;
   late CountryInfoViewContract? listScreenViewContract;

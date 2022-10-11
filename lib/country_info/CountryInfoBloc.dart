@@ -5,6 +5,13 @@ import 'package:artivatic_exercise/data_beans/CountryInfo.dart';
 import 'package:artivatic_exercise/data_beans/InfoProperty.dart';
 import 'package:rxdart/rxdart.dart';
 
+/**
+ * This class is a BLoC for the CountryInfo screen.
+ * This class is responsible for listening to the calls from the UI screen and processing the
+ * requests accordingly. On the other hand it is also responsible for pushing data/event to
+ * the UI screen.
+ * **/
+
 class CountryInfoBloc {
   late BehaviorSubject<CountryInfo?> _propertiesSubject;
   CountryInfo _countryInfo = CountryInfo();
